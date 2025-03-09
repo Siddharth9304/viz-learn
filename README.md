@@ -6,13 +6,15 @@ VizLearn is an interactive Data Structures and Algorithms (DSA) visualizer desig
 
 ## 🌟 Features
 
-📌 Visualizations for Stack, Queue, and Linked List.
+📌 **Visualizations for Stack, Queue, and Linked List**.
 
-🛠 Algorithm animations for Infix to Postfix conversion and Linear Search.
+🛠 **Algorithm animations for Infix to Postfix conversion and Linear Search**.
 
-🏆 User input support for customized visualizations.
+🏆 **User input support** for customized visualizations.
 
-🎨 Interactive UI for a seamless learning experience.
+🎨 **Interactive UI** for a seamless learning experience.
+
+🌗 **Light & Dark Mode support** for better accessibility and user preference.
 
 ## 📸 Screenshots
 
