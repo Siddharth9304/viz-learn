@@ -1,14 +1,10 @@
-VizLearn - The DSA Visualizer
+# VizLearn - The DSA Visualizer
 
-
-
-🚀 About
+## 🚀 About
 
 VizLearn is an interactive Data Structures and Algorithms (DSA) visualizer designed to help students and developers understand complex concepts through animated visualizations. It provides step-by-step explanations for various algorithms and data structures, making learning more engaging and effective.
 
-
-
-🌟 Features
+## 🌟 Features
 
 📌 Visualizations for Stack, Queue, and Linked List.
 
@@ -18,37 +14,33 @@ VizLearn is an interactive Data Structures and Algorithms (DSA) visualizer desig
 
 🎨 Interactive UI for a seamless learning experience.
 
+## 📸 Screenshots
 
+### Home Page  
+![Home Page](assets/screenshots/home.png)
 
-📸 Screenshots
+### Stack Visualization  
+![Stack Visualization](assets/screenshots/stack.png)
 
-
-
-🔧 Installation
+## 🔧 Installation
 
 To set up VizLearn locally, follow these steps:
-
-Clone the repository:
-
+```bash
+# Clone the repository
 git clone https://github.com/your-username/viz-learn.git
 
-Navigate to the project folder:
-
+# Navigate to the project folder
 cd viz-learn
 
-Install dependencies:
-
+# Install dependencies
 npm install
 
-Run the development server:
-
+# Run the development server
 npm start
-
+```
 Open http://localhost:3000/ in your browser to access the application.
 
-
-
-🎯 Usage
+## 🎯 Usage
 
 Select a Data Structure (Stack, Queue, Linked List) or Algorithm (Infix to Postfix, Linear Search) from the menu.
 
@@ -58,9 +50,7 @@ Observe the step-by-step execution of the algorithm.
 
 Experiment with different inputs to see how the algorithm adapts.
 
-
-
-🚀 Future Enhancements
+## 🚀 Future Enhancements
 
 We have exciting plans to expand VizLearn further! Here’s what’s coming next:
 
@@ -74,35 +64,47 @@ We have exciting plans to expand VizLearn further! Here’s what’s coming next
 
 🔜 Algorithm Race Mode - Compare different algorithms side by side to analyze their efficiency.
 
-
-
-🤝 Contributing
+## 🤝 Contributing
 
 We welcome contributions to improve VizLearn! To contribute:
+```bash
+# Fork the repository on GitHub
+git fork https://github.com/your-username/viz-learn.git
 
-Fork the repository
+# Clone your forked repository
+git clone https://github.com/your-username/viz-learn.git
 
-Create a feature branch (git checkout -b feature-branch)
+# Navigate to the project folder
+cd viz-learn
 
-Commit your changes (git commit -m "Add new feature")
+# Create a feature branch
+git checkout -b feature-branch
 
-Push to your branch (git push origin feature-branch)
+# Make your changes and commit
+git commit -m "Add new feature"
 
-Create a Pull Request
+# Push to your branch
+git push origin feature-branch
+```
+Then, create a Pull Request on GitHub.
 
+## Live Website
 
+Check out the live version of this project: [https://viz-learn.vercel.app]
 
-📜 License
+## GitHub Repository
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+You can find the repository for this project on GitHub: [https://github.com/Siddharth9304/viz-learn]
 
-📞 Contact
+## 📞 Contact
 
-Project Maintainer: Your Name
+Project Maintainer: Prem Siddhartha
 
-Email: your-email@example.com
+Email: premsiddcoding@gmail.com
 
-GitHub: GitHub Profile
+GitHub: [https://github.com/Siddharth9304]
 
 🎓 Empower your DSA learning with VizLearn! 🚀
+
+
 
