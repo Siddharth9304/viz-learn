@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { setDashBoardElement } from "../dashboardElementSlice"
@@ -15,10 +15,11 @@ export default function LinearSearchVisualizer() {
     const [arrayValues, setArrayValues] = useState("");
     const [isSearch, setIsSearch] = useState(false);
     const [isAnimation, setIsAnimation] = useState(false);
-    const [isWrongInput, setIsWrongInput] = useState(false);
+    const [isWrongInput, setIsWrongInput] = useState([false,"Enter comma separated integers ( e.g., 1, 2, 3, 4, 5... )."]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [target, setTarget] = useState(""); 
     const [isTargetSet, setIsTargetSet] = useState(false);
+    const intervalRef = useRef(null); // Store interval reference
 
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -47,26 +48,23 @@ export default function LinearSearchVisualizer() {
         else
         {
             array = parseNumberString(arrayValues);
-            setIsWrongInput([false,""]);
+            setIsWrongInput([false,"Enter comma separated integers ( e.g., 1,2,3,4,5... )."]);
             setIsSearch(true);
         }
 
     } 
 
-    const handleAnimation = () => {
-
-    }
-
     const handleNextButton = () => {
         if(currentIndex < result.length-1)
         {
             setCurrentIndex(currentIndex+1);
-                if(result[currentIndex+1])
-                    setTimeout(()=>confetti({
-                        particleCount: 150,
-                        spread: 70,
-                        origin: { x: 0.5, y: 0.5 },
-                      }),1050);
+            if(result[currentIndex+1]){
+                setTimeout(()=>confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { x: 0.5, y: 0.5 },
+                }),1050);
+            }
         }
     }
 
@@ -82,11 +80,11 @@ export default function LinearSearchVisualizer() {
             if(getLastNumberLength(exp)<6)
                 setArrayValues(exp);
             else
-                setIsWrongInput(true)
+                setIsWrongInput([true,"Number should have less than 6 digits."])
         }
         else
         {
-            setIsWrongInput(true);
+            setIsWrongInput([true,"Please write only integers separated by commas"]);
         }
         
     }
@@ -115,18 +113,52 @@ export default function LinearSearchVisualizer() {
         }
     }
 
+    const handleAnimation = () => {
+        if (isAnimation) {
+            setIsAnimation(false);
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        } else {
+            if (currentIndex === result.length-1) {
+                setCurrentIndex(-1);
+            }
+            
+            intervalRef.current = setInterval(() => {
+                setCurrentIndex((prevIndex) => {
+                    if (prevIndex >= result.length - 1) {
+                        clearInterval(intervalRef.current);
+                        intervalRef.current = null;
+                        setIsAnimation(false);
+                        return prevIndex; // Keep at last step
+                    }
+                    if(result[prevIndex+1]){
+                        setTimeout(()=>confetti({
+                            particleCount: 150,
+                            spread: 70,
+                            origin: { x: 0.5, y: 0.5 },
+                        }),1050);
+                    }
+                    return prevIndex + 1;
+                });
+            }, 2000); // Move to the next step every 1.5 seconds
+    
+            setIsAnimation(true);
+        }
+    }
+
     const darkMode = useSelector((state) => state.themeSlice.darkMode);
 
     return (
         <>
             {/* Array Controls */}
-            <div className="border p-5 flex flex-col gap-8 rounded md:col-start-1 md:col-end-6 lg:col-start-3 lg:col-end-8 md:row-start-7 md:row-end-11 md:p-3 md:gap-0 md:justify-around md:m-5 text-md sm:text-xl">
+            <div className="border p-5 flex flex-col gap-8 rounded md:col-start-1 md:col-end-6 lg:col-start-3 lg:col-end-8 md:row-start-7 md:row-end-11 md:p-3 md:gap-0 md:justify-between md:m-5 text-md sm:text-xl">
                 <div className="flex justify-between items-center text-md sm:text-xl flex-wrap">
                     <input id="inputValue" className={`w-[68%] border h-10 p-3 rounded ${darkMode?"text-white":"text-black"} ${isSearch ? "opacity-70 cursor-not-allowed" : ""}`}
                     placeholder="Enter comma separated integers"type="text" value={arrayValues} disabled={isSearch} 
                     onChange={handleValuesChange}/>
                     <button className={`w-[28%] overflow-hidden bg-green-500 h-10 rounded-lg hover:bg-green-600 cursor-pointer text-white`} onClick={handleSearch}>{isSearch?"Reset Array":"Set Array"}</button>
                 </div>
+                <div className={`p-2 font-bold top-[-52px] left-[10px] ${darkMode?"bg-amber-300":"bg-amber-100"} rounded text-red-500 ${isWrongInput[0]?"hidden":""}`}>{isWrongInput[1]}</div>
                 <div className={`p-2 font-bold top-[-52px] left-[10px] ${darkMode?"bg-amber-300":"bg-amber-100"} rounded text-red-500 ${isWrongInput[0]?"":"hidden"}`}>{isWrongInput[1]}</div>
                 <div className="flex justify-between items-center flex-wrap">
                     <input type="number" placeholder="Enter target value" value={target} className={`w-[68%] border h-10 p-3 rounded ${isSearch&&!isTargetSet ? "" : "opacity-70 cursor-not-allowed"} ${darkMode?"text-white":"text-black"}`} disabled={!isSearch||isTargetSet} onChange={handleTargetValue}/>

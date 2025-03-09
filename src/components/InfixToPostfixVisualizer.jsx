@@ -1,4 +1,3 @@
-import ToggleButton from "./ToggleButton";
 import React, { useEffect, useState, useRef } from "react";
 import Stack from "../utils/Stack";
 import { motion, AnimatePresence } from "framer-motion";
@@ -174,14 +173,15 @@ const handleAnimation = () => {
     return(
         <>
             {/* Stack Controls */}
-            <div className="border p-5 flex flex-col gap-8 rounded md:col-start-1 text-md md:text-xl md:col-end-5 lg:col-start-3 lg:col-end-7 md:row-start-2 md:row-end-5 md:p-3 md:gap-0 md:justify-around md:m-5 md:mb-0">
+            <div className="border p-5 flex flex-col gap-8 rounded md:col-start-1 text-md md:text-xl md:col-end-5 lg:col-start-3 lg:col-end-7 md:row-start-2 md:row-end-5 md:p-3 md:gap-0 md:justify-between md:m-5 md:mb-0">
                 <div className="flex justify-between items-center flex-wrap">
                     <input id="inputValue" className={`w-[68%] border h-10 p-3 rounded ${darkMode?"text-white":"text-black"}`}
                     placeholder="Enter expression (use variables only)"type="text" value={expression} disabled={isStart} 
                     onChange={handleChange}/>
                     <button className={`w-[28%] bg-green-500 h-10 rounded-lg hover:bg-green-600 cursor-pointer ${isStart?"":""} text-white`} onClick={handleEvaluate}>{isStart?"Reset":"Start"}</button>
                 </div>
-                <div className={`p-2 font-bold top-[-52px] left-[10px] ${darkMode?"bg-amber-300":"bg-amber-100"} rounded text-red-500 ${isWrongInput[0]?"":"hidden"}`}>{isWrongInput[1]}</div>
+                <div className={`p-1 font-bold top-[-52px] left-[10px] ${darkMode?"bg-amber-300":"bg-amber-100"} rounded text-red-500 ${isWrongInput[0]?"hidden":""}`}>{"Only use variables, operators, or brackets ( e.g., a * (b + c) / d )."}</div>
+                <div className={`p-1 font-bold top-[-52px] left-[10px] ${darkMode?"bg-amber-300":"bg-amber-100"} rounded text-red-500 ${isWrongInput[0]?"":"hidden"}`}>{isWrongInput[1]}</div>
                 <div className="flex justify-between flex-wrap">
                     <button className={` bg-red-500 w-[32%] h-10 rounded-lg ${isStart ? "cursor-pointer hover:bg-red-600" : "opacity-70 cursor-not-allowed"} text-white`} disabled={!isStart} onClick={handleAnimation}>{isAnimation?"Stop":"Animation"}</button>
                     <button className={`w-[32%] h-10 rounded-lg ${isStart ? "cursor-pointer" : "opacity-70 cursor-not-allowed"} ${darkMode?"text-black bg-white":"text-white bg-black"}`} disabled={!isStart} onClick={()=>{if(resultIndex>-1)setResultIndex(resultIndex-1);}}>Step Back</button>

@@ -160,32 +160,38 @@ export default function DashBoard()
                     </div>
 
                     {/* Algorithms Section */}
-                    <div className="flex flex-col">
-                    <h3 className="text-xl text-center font-medium pb-2">Algorithms</h3>
-                    <Link to="/dashBoard/infix-to-postfix">
+                    <div className="flex flex-col items-center">
+                    <h3 className="text-xl text-center font-medium pb-2 w-35">Algorithms</h3>
+                    <nav className="w-50">
+                        <Link to="/dashBoard/infix-to-postfix">
                         <button
                             className={`${buttonStyle} ${dashBoardElement === "Infix to Postfix" ? "text-red-700" : ""}`}
                             onClick={() => setIsSideNavBarOpen(false)}
                         >
                             Infix to Postfix
                         </button>
-                    </Link>
-                    <Link to="/dashBoard/linearsearch">
+                        </Link>
+                    </nav>
+                    <nav className="w-50">
+                        <Link to="/dashBoard/linearsearch">
                         <button
                             className={`${buttonStyle} ${dashBoardElement === "Linear Search" ? "text-red-700" : ""}`}
                             onClick={() => setIsSideNavBarOpen(false)}
                         >
                             Linear Search
                         </button>
-                    </Link>
-                    <Link to="/dashBoard/bfs-traversal">
+                        </Link>
+                    </nav>
+                    <nav className="w-50">
+                        <Link to="/dashBoard/bfstraversal">
                         <button
                             className={`${buttonStyle} ${dashBoardElement === "BFS Traversal" ? "text-red-700" : ""}`}
                             onClick={() => setIsSideNavBarOpen(false)}
                         >
                             BFS Traversal
                         </button>
-                    </Link>
+                        </Link>
+                    </nav>
                     </div>
                 </>
                 );
