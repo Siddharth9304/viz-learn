@@ -29,7 +29,7 @@ VizLearn is an interactive Data Structures and Algorithms (DSA) visualizer desig
   <img src="assets/screenshots/linkedList.png" alt="Linked lists Visualization" width="500">
 </p>
 
-### Infix to Postfix Visualization  
+### Infix to Postfix & Linear Search Visualization  
 <p align="center">
   <img src="assets/screenshots/infixToPostfix.png" alt="Home Page" width="500">
   <img src="assets/screenshots/linearSearch.png" alt="Linear Search Visualization" width="500">
