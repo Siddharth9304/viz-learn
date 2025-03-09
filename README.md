@@ -17,10 +17,10 @@ VizLearn is an interactive Data Structures and Algorithms (DSA) visualizer desig
 ## 📸 Screenshots
 
 ### Home Page  
-![Home Page](assets/screenshots/home.png)
+<img src="assets/screenshots/home.png" alt="Home Page" width="500">
 
 ### Stack Visualization  
-![Stack Visualization](assets/screenshots/stack.png)
+<img src="assets/screenshots/stack.png" alt="Stack Visualization" width="500">
 
 ## 🔧 Installation
 
