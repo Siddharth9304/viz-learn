@@ -1,0 +1,30 @@
+{
+  "name": "vizlearn",
+  "version": "1.0.0",
+  "description": "VizLearn - A platform to visualize data structures and alogrithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prem Siddhartha",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "@tailwindcss/postcss": "^4.0.6",
+    "@xyflow/react": "^12.4.4",
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.4.5",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-confetti": "^6.2.3",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-redux": "^9.2.0",
+    "react-router": "^7.2.0",
+    "tailwindcss": "^4.0.6"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  }
+}
