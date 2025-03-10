@@ -43,7 +43,7 @@ export default function BfsTraversal() {
       <div className="border rounded md:col-start-1 md:col-end-5 lg:col-start-3 lg:col-end-7 md:row-start-2 md:row-end-11 md:m-5 p-5 flex justify-center">
         <div className="text-3xl">We are currently working on this visualizer.</div>
       </div>
-      <div className="border rounded h-150 md:col-start-5 lg:col-start-7 md:col-end-12 md:row-start-2 md:row-end-11 md:m-5 p-5">
+      <div className="border rounded h-150 md:h-auto md:col-start-5 lg:col-start-7 md:col-end-12 md:row-start-2 md:row-end-11 md:m-5 p-5">
         <ReactFlow
           nodes={nodes}
           edges={edges}
