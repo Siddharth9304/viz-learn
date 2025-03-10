@@ -2,8 +2,8 @@ import infixToPostfixImg from "../utils/images/infixToPostfix.png"
 import infixToPostfixImgDark from "../utils/images/infixToPostfixDark.png"
 import linearSearchImg from "../utils/images/linearSearch.png"
 import linearSearchImgDark from "../utils/images/linearSearchDark.png"
-// import bfsTravelImg from "../utils/images/bfsTravel.png"
-// import bfsTravelImgDark from "../utils/images/bfsTravelDark.png"
+import bfsTraversalImg from "../utils/images/bfsTraversal.png"
+import bfsTraversalImgDark from "../utils/images/bfsTraversalDark.png"
 
 const algorithmsInfo = [
     {
@@ -25,8 +25,8 @@ const algorithmsInfo = [
     {
         id: "bfstraversal",
         name: "BFS Traversal",
-        img: infixToPostfixImg,
-        imgDark: infixToPostfixImgDark,
+        img: bfsTraversalImg,
+        imgDark: bfsTraversalImgDark,
         definition: "A graph traversal algorithm that explores nodes level by level, visiting all neighbors of a node before moving deeper, using a queue",
         route: "/dashboard/bfs-traversal"
     },
