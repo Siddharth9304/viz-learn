@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Contributors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .contributors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .contributor {
+            margin: 10px;
+            text-align: center;
+        }
+        .contributor img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>GitHub Contributors</h2>
+    <div class="contributors" id="contributors"></div>
+
+    <script>
+        async function fetchContributors() {
+            const repoOwner = "Siddharth9304";  // Change to repository owner
+            const repoName = "viz-learn";  // Change to repository name
+
+            const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`;
+
+            try {
+                const response = await fetch(url);
+                const contributors = await response.json();
+
+                const container = document.getElementById("contributors");
+
+                contributors.forEach(contributor => {
+                    const div = document.createElement("div");
+                    div.className = "contributor";
+
+                    div.innerHTML = `
+                        <a href="${contributor.html_url}" target="_blank">
+                            <img src="${contributor.avatar_url}" alt="${contributor.login}">
+                        </a>
+                        <p>${contributor.login}</p>
+                    `;
+
+                    container.appendChild(div);
+                });
+
+            } catch (error) {
+                console.error("Error fetching contributors:", error);
+            }
+        }
+
+        fetchContributors();
+    </script>
+
+</body>
+</html>
